@@ -20,7 +20,7 @@ import javax.annotation.Nonnull;
 
 public final class LevelName
 {
-  public static int LEVEL_STRING_LONGEST = "critical".length();
+  public static final int LEVEL_STRING_LONGEST = "critical".length();
 
   public static @Nonnull String get(
     final @Nonnull Level level)
