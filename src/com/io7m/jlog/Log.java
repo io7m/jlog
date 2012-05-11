@@ -87,17 +87,17 @@ public final class Log implements LogInterface
       "unreachable code reached - report this bug!");
   }
 
-  private final @CheckForNull Log                           parent;
-  private final @Nonnull CopyOnWriteArrayList<Log>          children;
-  private final @Nonnull ConcurrentHashMap<String, Boolean> configuration;
-  private final @Nonnull AtomicReference<Callbacks>         callback =
-                                                                       new AtomicReference<Callbacks>();
+  private final @CheckForNull Log                                parent;
+  private final @Nonnull CopyOnWriteArrayList<Log>               children;
+  private final @CheckForNull ConcurrentHashMap<String, Boolean> configuration;
+  private final @Nonnull AtomicReference<Callbacks>              callback =
+                                                                            new AtomicReference<Callbacks>();
 
-  private final @Nonnull AtomicReference<OutputStream>      stream   =
-                                                                       new AtomicReference<OutputStream>();
-  private final @Nonnull AtomicReference<Level>             level    =
-                                                                       new AtomicReference<Level>();
-  private final @Nonnull String                             destination_abs;
+  private final @Nonnull AtomicReference<OutputStream>           stream   =
+                                                                            new AtomicReference<OutputStream>();
+  private final @Nonnull AtomicReference<Level>                  level    =
+                                                                            new AtomicReference<Level>();
+  private final @Nonnull String                                  destination_abs;
 
   /*
    * Default log callback that just writes the destination, followed by a
@@ -105,9 +105,9 @@ public final class Log implements LogInterface
    * current output stream.
    */
 
-  private final @Nonnull String                             destination_local;
+  private final @Nonnull String                                  destination_local;
 
-  private final @CheckForNull AtomicInteger                 destination_longest;
+  private final @CheckForNull AtomicInteger                      destination_longest;
 
   public Log(
     final @Nonnull Log parent,
@@ -200,6 +200,7 @@ public final class Log implements LogInterface
     /* Configuration exists for this log? */
     if (root.configuration.containsKey(this.destination_abs)) {
       final Boolean enabled = root.configuration.get(this.destination_abs);
+      assert enabled != null;
       return enabled.booleanValue();
     }
 
@@ -317,6 +318,8 @@ public final class Log implements LogInterface
     if (this.isRoot()) {
       return this;
     }
+
+    assert this.parent != null;
     return this.parent.getRoot();
   }
 

@@ -8,6 +8,11 @@
     <c:item>
       <c:date>2012-05-11</c:date>
       <c:type-code-fix/>
+      <c:summary>Additional null checks and annotations to please findbugs</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2012-05-11</c:date>
+      <c:type-code-fix/>
       <c:summary>LevelName.LEVEL_STRING_LONGEST was missing the 'final' qualifier</c:summary>
     </c:item>
   </c:release>
