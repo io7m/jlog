@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+  <properties>
+    <title>Releases</title>
+  </properties>
+  <body>
+    <section name="Releases">
+      <table class="software_releases page_table" summary="Current project releases">
+        <thead class="page_table_head">
+          <tr>
+            <th class="page_table_column_name">Date</th>
+            <th class="page_table_column_name">Package</th>
+            <th class="page_table_column_name">Size</th>
+            <th class="page_table_column_name">SHA256</th>
+            <th class="page_table_column_name">PGP</th>
+          </tr>
+        </thead>
+        <tbody class="page_table_body">
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-02-06</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-0.2.0.zip">io7m-jlog-0.2.0.zip</a>
+            </td>
+            <td class="page_table_column">19918</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-0.2.0.zip.sha256">sha256</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-0.2.0.zip.asc">asc</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-02-06</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-0.2.0.jar">io7m-jlog-0.2.0.jar</a>
+            </td>
+            <td class="page_table_column">14175</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-0.2.0.jar.sha256">sha256</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-0.2.0.jar.asc">asc</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-03-15</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-1.0.0.zip">io7m-jlog-1.0.0.zip</a>
+            </td>
+            <td class="page_table_column">21613</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-1.0.0.zip.sha256">sha256</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-1.0.0.zip.asc">asc</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-03-15</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-1.0.0.jar">io7m-jlog-1.0.0.jar</a>
+            </td>
+            <td class="page_table_column">14172</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-1.0.0.jar.sha256">sha256</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-1.0.0.jar.asc">asc</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-06-19</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.0.0.zip">io7m-jlog-2.0.0.zip</a>
+            </td>
+            <td class="page_table_column">24407</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.0.0.zip.sha256">sha256</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.0.0.zip.asc">asc</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-06-19</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.0.0.jar">io7m-jlog-2.0.0.jar</a>
+            </td>
+            <td class="page_table_column">15619</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.0.0.jar.sha256">sha256</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.0.0.jar.asc">asc</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section name="Documentation">
+      <table class="documentation_releases page_table" summary="Current project releases">
+        <thead class="page_table_head">
+          <tr>
+            <th class="page_table_column_name">Date</th>
+            <th class="page_table_column_name">Online</th>
+            <th class="page_table_column_name">Package</th>
+            <th class="page_table_column_name">Size</th>
+            <th class="page_table_column_name">SHA256</th>
+            <th class="page_table_column_name">PGP</th>
+          </tr>
+        </thead>
+        <tbody class="page_table_body">
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-02-06</td>
+            <td class="page_table_column">
+              <a class="page_link" href="http://io7m.com/software/jlog/doc/0.2.0/d1.xhtml">io7m-jlog 0.2.0</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-doc-0.2.0.zip">io7m-jlog-doc-0.2.0.zip</a>
+            </td>
+            <td class="page_table_column">67941</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-doc-0.2.0.zip.sha256">sha256</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-doc-0.2.0.zip.asc">asc</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-03-15</td>
+            <td class="page_table_column">
+              <a class="page_link" href="http://io7m.com/software/jlog/doc/1.0.0/d1.xhtml">io7m-jlog 1.0.0</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-doc-1.0.0.zip">io7m-jlog-doc-1.0.0.zip</a>
+            </td>
+            <td class="page_table_column">68020</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-doc-1.0.0.zip.sha256">sha256</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-doc-1.0.0.zip.asc">asc</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-06-19</td>
+            <td class="page_table_column">
+              <a class="page_link" href="http://io7m.com/software/jlog/doc/2.0.0/d1.xhtml">io7m-jlog 2.0.0</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-doc-2.0.0.zip">io7m-jlog-doc-2.0.0.zip</a>
+            </td>
+            <td class="page_table_column">83102</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-doc-2.0.0.zip.sha256">sha256</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-doc-2.0.0.zip.asc">asc</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+    <section name="Changes">
+      <table class="changelog page_table" summary="Changes">
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-06-19</td>
+          <td class="page_table_column">Release: io7m-jlog 2.0.0</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-06-19</td>
+          <td class="page_table_column">Code new: Switch to maven for builds</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-05-11</td>
+          <td class="page_table_column">Code fix: Additional null checks and annotations to please findbugs</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-05-11</td>
+          <td class="page_table_column">Code fix: LevelName.LEVEL_STRING_LONGEST was missing the 'final' qualifier</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-03-21</td>
+          <td class="page_table_column">Release: io7m-jlog 1.0.1</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-02-21</td>
+          <td class="page_table_column">Platform new: Add FreeBSD 8.2 as supported</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-03-15</td>
+          <td class="page_table_column">Release: io7m-jlog 1.0.0</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-03-06</td>
+          <td class="page_table_column">Code fix: Depend on jexternals for eclipse users</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-02-08</td>
+          <td class="page_table_column">Platform new: Add SunOS supported</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-02-07</td>
+          <td class="page_table_column">Code fix: Suppress unused object warnings</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-02-06</td>
+          <td class="page_table_column">Release: io7m-jlog 0.2.0</td>
+        </tr>
+        <tr class="page_table_row">
+          <td class="page_table_column">2012-02-06</td>
+          <td class="page_table_column">Code new: Initial version</td>
+        </tr>
+      </table>
+    </section>
+  </body>
+</document>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document
+  xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+
+  <properties>
+    <title>io7m-jlog</title>
+  </properties>
+
+  <body>
+    <subsection name="jlog">
+      <p>
+        The <var>jlog</var> package provides a simple package for configurable program
+        logging.
+      </p>
+      <p>
+        The API exposed to the programmer essentially has the programmer build
+        an (implicit) tree of log outputs and pass one output to each relevant program
+        component. The leaves/branches of the tree can be individually
+        enabled/disabled at runtime from a simple Java
+        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Properties.html">properties</a>
+        file. This allows the programmer to specify exactly which
+        debugging messages they require at any given time, preventing
+        the typical flood of messages when setting high verbosity levels
+        for traditional UNIX programs.
+      </p>
+    </subsection>
+    <subsection name="features">
+      <ul>
+        <li>Hierarchical, run-time configurable, program logging.</li>
+        <li>Supports traditional message severity levels ("debug", "info", "warn", "error", "critical").</li>
+        <li>Fully documented (Javadoc).</li>
+        <li>98% automated unit test coverage.</li>
+        <li>ISC license.</li>
+        <li>Platform independent (tested on FreeBSD, Linux, Mac OS X, Solaris, Windows XP).</li>
+      </ul>
+    </subsection>
+  </body>
+
+</document>
