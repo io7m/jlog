@@ -19,7 +19,7 @@
 <s:document
   xmlns:s="http://www.io7m.com/schemas/structural/1.0.0"
   xmlns:xi="http://www.w3.org/2001/XInclude">
-  <s:document-title>io7m-jlog 2.0.0 Documentation</s:document-title>
+  <s:document-title>io7m-jlog 2.1.0 Documentation</s:document-title>
   <s:document-style>documentation.css</s:document-style>
   <s:document-contents/>
 
@@ -65,14 +65,14 @@
         <s:link-external target="http://maven.apache.org">Maven</s:link-external>:
       </s:paragraph>
       <s:paragraph>
-        <s:verbatim type="example"><![CDATA[$ mvn clean install]]></s:verbatim>   
+        <s:verbatim type="example"><![CDATA[$ mvn -C clean install]]></s:verbatim>   
       </s:paragraph>
     </s:section>
     <s:section>
       <s:section-title>Supported Systems</s:section-title>
       <s:paragraph>
-        The software is known to pass 100% of the included unit tests on the
-        following platforms:
+        This release of the software is known to pass 100% of the included
+        unit tests on the following platforms:
       </s:paragraph>
         <s:formal-item kind="platform_table" type="platforms">
           <s:formal-item-title>Supported systems</s:formal-item-title>
