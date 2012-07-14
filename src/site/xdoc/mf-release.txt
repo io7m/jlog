@@ -1,0 +1,4 @@
+2012-07-14:io7m-jlog-2.1.0.jar:16446
+2012-07-14:io7m-jlog-2.1.0-javadoc.jar:63484
+2012-07-14:io7m-jlog-2.1.0-sources.jar:10204
+2012-07-14:io7m-jlog-2.1.0.zip:50596

@@ -1,17 +1,162 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document xmlns="http://maven.apache.org/XDOC/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
+<document
+  xmlns="http://maven.apache.org/XDOC/2.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/XDOC/2.0 http://maven.apache.org/xsd/xdoc-2.0.xsd">
   <properties>
     <title>Releases</title>
   </properties>
   <body>
+
     <section name="Releases">
-      No releases are currently available.
+      <table class="software_releases page_table" summary="Current project releases">
+        <thead class="page_table_head">
+          <tr>
+            <th class="page_table_column_name">Date</th>
+            <th class="page_table_column_name">Size</th>
+            <th class="page_table_column_name">PGP</th>
+            <th class="page_table_column_name">Package</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-07-14</td>
+            <td class="page_table_column">16446</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.1.0.jar.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.1.0.jar">io7m-jlog-2.1.0.jar</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-07-14</td>
+            <td class="page_table_column">63484</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.1.0-javadoc.jar.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.1.0-javadoc.jar">io7m-jlog-2.1.0-javadoc.jar</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-07-14</td>
+            <td class="page_table_column">10204</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.1.0-sources.jar.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.1.0-sources.jar">io7m-jlog-2.1.0-sources.jar</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-07-14</td>
+            <td class="page_table_column">50596</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.1.0.zip.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.1.0.zip">io7m-jlog-2.1.0.zip</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
+
     <section name="Documentation">
-      No documentation is currently available.
+      <table class="documentation_releases page_table" summary="Current project documentation releases">
+        <thead class="page_table_head">
+          <tr>
+            <th class="page_table_column_name">Date</th>
+            <th class="page_table_column_name">Size</th>
+            <th class="page_table_column_name">PGP</th>
+            <th class="page_table_column_name">Online</th>
+            <th class="page_table_column_name">Package</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="page_table_row">
+            <td class="page_table_column">2012-07-14</td>
+            <td class="page_table_column">79375</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.1.0-documentation.zip.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://io7m.com/software/jlog/doc/2.1.0/d1.xhtml">io7m-jlog 2.1.0</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.1.0-documentation.zip">io7m-jlog-2.1.0-documentation.zip</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </section>
+
     <section name="Changes">
-      No changelog has been published.
+<table xmlns="http://www.w3.org/1999/xhtml" class="changelog page_table"
+       summary="Changes">
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-07-14</td>
+      <td class="page_table_column">Release: io7m-jlog 2.1.0</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-07-14</td>
+      <td class="page_table_column">Code new: Produce documentation with Maven</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-07-13</td>
+      <td class="page_table_column">Code fix: Make dependencies more honest: The package only depends on jsr305, not all of findbugs</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-06-19</td>
+      <td class="page_table_column">Release: io7m-jlog 2.0.0</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-06-19</td>
+      <td class="page_table_column">Code new: Switch to maven for builds</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-05-11</td>
+      <td class="page_table_column">Code fix: Additional null checks and annotations to please findbugs</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-05-11</td>
+      <td class="page_table_column">Code fix: LevelName.LEVEL_STRING_LONGEST was missing the 'final' qualifier</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-03-21</td>
+      <td class="page_table_column">Release: io7m-jlog 1.0.1</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-02-21</td>
+      <td class="page_table_column">Platform new: Add FreeBSD 8.2 as supported</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-03-15</td>
+      <td class="page_table_column">Release: io7m-jlog 1.0.0</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-03-06</td>
+      <td class="page_table_column">Code fix: Depend on jexternals for eclipse users</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-02-08</td>
+      <td class="page_table_column">Platform new: Add SunOS supported</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-02-07</td>
+      <td class="page_table_column">Code fix: Suppress unused object warnings</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-02-06</td>
+      <td class="page_table_column">Release: io7m-jlog 0.2.0</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2012-02-06</td>
+      <td class="page_table_column">Code new: Initial version</td>
+   </tr>
+</table>
     </section>
+
   </body>
 </document>
