@@ -35,20 +35,30 @@ public final class ExampleThreaded implements Runnable
       ExampleThreaded.usage();
     }
 
-    final FileInputStream file = new FileInputStream(args[0]);
-    final Properties p = new Properties();
-    p.load(file);
+    FileInputStream file = null;
 
-    final ExecutorService pool = Executors.newCachedThreadPool();
-    for (int index = 0; index < 100; ++index) {
-      pool.execute(new ExampleThreaded(p));
+    try {
+      file = new FileInputStream(args[0]);
+      final Properties p = new Properties();
+      p.load(file);
+
+      final ExecutorService pool = Executors.newCachedThreadPool();
+      for (int index = 0; index < 100; ++index) {
+        pool.execute(new ExampleThreaded(p));
+      }
+    } finally {
+      if (file != null) {
+        file.close();
+      }
     }
   }
+
   private static void usage()
   {
     System.err.println("usage: properties.cfg");
     System.exit(1);
   }
+
   private final Log main;
   private final Log main_a;
 

@@ -33,23 +33,31 @@ public final class Example implements Runnable
       Example.usage();
     }
 
-    final FileInputStream file = new FileInputStream(args[0]);
-    final Properties p = new Properties();
-    p.load(file);
+    FileInputStream file = null;
 
-    final Example e = new Example(p);
-    e.run();
+    try {
+      file = new FileInputStream(args[0]);
+      final Properties p = new Properties();
+      p.load(file);
+
+      final Example e = new Example(p);
+      e.run();
+    } finally {
+      if (file != null) {
+        file.close();
+      }
+    }
   }
+
   private static void usage()
   {
     System.err.println("usage: properties.cfg");
     System.exit(1);
   }
+
   private final Log main;
   private final Log main_a;
-
   private final Log main_b;
-
   private final Log blackhole;
 
   public Example(
