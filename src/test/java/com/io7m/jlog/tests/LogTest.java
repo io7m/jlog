@@ -54,7 +54,7 @@ public class LogTest
    * Initialization.
    */
 
-  @Test public void test()
+  @SuppressWarnings("static-method") @Test public void test()
   {
     final Properties properties = new Properties();
     final Log log_main = new Log(properties, "io7m.jlog", "main");
@@ -74,7 +74,7 @@ public class LogTest
     Assert.assertEquals(log_main_c.getAbsoluteDestination(), "main.c");
   }
 
-  @Test public void testLogConfig0()
+  @SuppressWarnings("static-method") @Test public void testLogConfig0()
   {
     final Properties properties = new Properties();
     properties.put("io7m.jlog.logs.main", "true");
@@ -101,7 +101,7 @@ public class LogTest
     Assert.assertEquals(2, callback.count);
   }
 
-  @Test public void testLogConfig1()
+  @SuppressWarnings("static-method") @Test public void testLogConfig1()
   {
     final Properties properties = new Properties();
     properties.put("io7m.jlog.logs.main", "false");
@@ -126,7 +126,7 @@ public class LogTest
     Assert.assertEquals(0, callback.count);
   }
 
-  @Test public void testLogConfig2()
+  @SuppressWarnings("static-method") @Test public void testLogConfig2()
   {
     final Properties properties = new Properties();
     properties.put("io7m.jlog.logs.main", "true");
@@ -151,7 +151,7 @@ public class LogTest
     Assert.assertEquals(3, callback.count);
   }
 
-  @Test public void testLogConfig3()
+  @SuppressWarnings("static-method") @Test public void testLogConfig3()
   {
     final Properties properties = new Properties();
     final Log log_main = new Log(properties, "io7m.jlog", "main");
@@ -174,7 +174,8 @@ public class LogTest
     Assert.assertEquals(3, callback.count);
   }
 
-  @SuppressWarnings("unused") @Test(expected = IllegalArgumentException.class) public
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = IllegalArgumentException.class) public
     void
     testLogConfigFailure()
   {
@@ -183,7 +184,7 @@ public class LogTest
     new Log(properties, "io7m.jlog", "main");
   }
 
-  @Test public void testLogLevels0()
+  @SuppressWarnings("static-method") @Test public void testLogLevels0()
   {
     final Properties properties = new Properties();
     final Log log_main = new Log(properties, "io7m.jlog", "main");
@@ -210,7 +211,7 @@ public class LogTest
    * Stream selection.
    */
 
-  @Test public void testLogLevels1()
+  @SuppressWarnings("static-method") @Test public void testLogLevels1()
   {
     final Properties properties = new Properties();
     final Log log_main = new Log(properties, "io7m.jlog", "main");
@@ -235,7 +236,7 @@ public class LogTest
     Assert.assertEquals(0, callback.count);
   }
 
-  @Test public void testLogLevels2()
+  @SuppressWarnings("static-method") @Test public void testLogLevels2()
   {
     final Properties properties = new Properties();
     final Log log_main = new Log(properties, "io7m.jlog", "main");
@@ -257,7 +258,7 @@ public class LogTest
     log_main.write(Level.LOG_CRITICAL, "main");
   }
 
-  @Test public void testLogLevels3()
+  @SuppressWarnings("static-method") @Test public void testLogLevels3()
   {
     final Properties properties = new Properties();
     final Log log_main = new Log(properties, "io7m.jlog", "main");
@@ -283,7 +284,7 @@ public class LogTest
    * Disabling logs by configuration disables logging!
    */
 
-  @Test public void testLogLevelsConfig0()
+  @SuppressWarnings("static-method") @Test public void testLogLevelsConfig0()
   {
     final Properties properties = new Properties();
     properties.put("io7m.jlog.level", "LOG_DEBUG");
@@ -308,7 +309,8 @@ public class LogTest
     Assert.assertEquals(3, callback.count);
   }
 
-  @SuppressWarnings("unused") @Test(expected = IllegalArgumentException.class) public
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = IllegalArgumentException.class) public
     void
     testLogLevelsConfigFail0()
   {
@@ -317,7 +319,7 @@ public class LogTest
     new Log(properties, "io7m.jlog", "main");
   }
 
-  @Test public void testLogStreamFailure()
+  @SuppressWarnings("static-method") @Test public void testLogStreamFailure()
   {
     final Properties properties = new Properties();
     properties.put("io7m.jlog.logs.main", "true");
@@ -334,15 +336,15 @@ public class LogTest
     log.write("failed!");
   }
 
-  @Test(expected = IllegalArgumentException.class) public
-    void
-    testNullCallback()
+  @SuppressWarnings("static-method") @Test(
+    expected = IllegalArgumentException.class) public void testNullCallback()
   {
     final Log log = new Log(new Properties(), "io7m.jlog", "main");
     log.setCallback(null);
   }
 
-  @SuppressWarnings("unused") @Test(expected = IllegalArgumentException.class) public
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = IllegalArgumentException.class) public
     void
     testNullDestination0()
   {
@@ -354,7 +356,8 @@ public class LogTest
    * Levels.
    */
 
-  @SuppressWarnings("unused") @Test(expected = IllegalArgumentException.class) public
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = IllegalArgumentException.class) public
     void
     testNullDestination1()
   {
@@ -363,31 +366,29 @@ public class LogTest
     new Log(log_main, null);
   }
 
-  @SuppressWarnings("unused") @Test(expected = IllegalArgumentException.class) public
-    void
-    testNullParent()
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = IllegalArgumentException.class) public void testNullParent()
   {
     new Log(null, "a");
   }
 
-  @SuppressWarnings("unused") @Test(expected = IllegalArgumentException.class) public
-    void
-    testNullPrefix()
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = IllegalArgumentException.class) public void testNullPrefix()
   {
     final Properties properties = new Properties();
     new Log(properties, null, "main");
   }
 
-  @SuppressWarnings("unused") @Test(expected = IllegalArgumentException.class) public
+  @SuppressWarnings({ "unused", "static-method" }) @Test(
+    expected = IllegalArgumentException.class) public
     void
     testNullProperties()
   {
     new Log(null, "io7m.jlog", "main");
   }
 
-  @Test(expected = IllegalArgumentException.class) public
-    void
-    testStreamNull()
+  @SuppressWarnings("static-method") @Test(
+    expected = IllegalArgumentException.class) public void testStreamNull()
   {
     final Properties properties = new Properties();
     final Log log_main = new Log(properties, "io7m.jlog", "main");
@@ -399,7 +400,7 @@ public class LogTest
    * specified.
    */
 
-  @Test public void testStreamSelection0()
+  @SuppressWarnings("static-method") @Test public void testStreamSelection0()
   {
     final Properties properties = new Properties();
     final Log log_main = new Log(properties, "io7m.jlog", "main");
@@ -426,7 +427,7 @@ public class LogTest
    * Output goes to the correct streams when they are explicitly specified.
    */
 
-  @Test public void testStreamSelection1()
+  @SuppressWarnings("static-method") @Test public void testStreamSelection1()
   {
     final Properties properties = new Properties();
     final Log log_main = new Log(properties, "io7m.jlog", "main");

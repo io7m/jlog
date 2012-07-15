@@ -8,7 +8,7 @@ import com.io7m.jlog.LevelName;
 
 public class LevelNameTest
 {
-  @Test public void testLevels()
+  @SuppressWarnings("static-method") @Test public void testLevels()
   {
     Assert.assertEquals("debug", LevelName.get(Level.LOG_DEBUG));
     Assert.assertEquals("info", LevelName.get(Level.LOG_INFO));
