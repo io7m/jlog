@@ -80,11 +80,11 @@ public final class Log implements LogInterface
         return 3;
       case LOG_CRITICAL:
         return 4;
+      default:
+        /* UNREACHABLE */
+        throw new IllegalArgumentException(
+          "unreachable code reached - report this bug!");
     }
-
-    /* UNREACHABLE */
-    throw new IllegalArgumentException(
-      "unreachable code reached - report this bug!");
   }
 
   private final @CheckForNull Log                                parent;

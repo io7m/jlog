@@ -36,10 +36,10 @@ public final class LevelName
         return "error";
       case LOG_CRITICAL:
         return "critical";
+      default:
+        /* UNREACHABLE */
+        throw new IllegalArgumentException(
+          "unreachable code reached - report this bug!");
     }
-
-    /* UNREACHABLE */
-    throw new IllegalArgumentException(
-      "unreachable code reached - report this bug!");
   }
 }
