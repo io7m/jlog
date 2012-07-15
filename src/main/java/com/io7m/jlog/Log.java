@@ -106,7 +106,6 @@ public final class Log implements LogInterface
    */
 
   private final @Nonnull String                                  destination_local;
-
   private final @CheckForNull AtomicInteger                      destination_longest;
 
   public Log(
@@ -446,7 +445,8 @@ public final class Log implements LogInterface
   {
     if (this.enabled(in_level)) {
       final String destination = this.destination_abs;
-      final OutputStream out = this.getOutputStream();
+      @SuppressWarnings("resource") final OutputStream out =
+        this.getOutputStream();
       final Callbacks c = this.getCallback();
       c.call(out, destination, in_level, message);
     }
