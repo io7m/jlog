@@ -6,7 +6,7 @@
   <packaging>jar</packaging>
   <name>io7m-jlog</name>
   <description>Hierarchical logging package</description>
-  <url>http://io7m.com/software/jlog/</url>
+  <url>http://mvn.io7m.com/jlog/</url>
 
   <licenses>
     <license>
@@ -39,7 +39,7 @@
     <site>
       <id>io7m</id>
       <name>io7m.com</name>
-      <url>http://io7m.com/software/jlog/</url>
+      <url>http://mvn.io7m.com/jlog/</url>
     </site>
   </distributionManagement>
 
