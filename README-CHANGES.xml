@@ -3,10 +3,30 @@
   <c:project>io7m-jlog</c:project>
 
   <c:release ticket-system="com.io7m.fossil.jlog">
-    <c:date>2012-07-15</c:date>
+    <c:date>2012-07-23</c:date>
+    <c:version>2.2.0</c:version>
+    <c:item>
+      <c:date>2012-07-23</c:date>
+      <c:type-code-new/>
+      <c:summary>Update all plugins to latest versions</c:summary>
+    </c:item>
+  </c:release>
+
+  <c:release ticket-system="com.io7m.fossil.jlog">
+    <c:date>2012-07-23</c:date>
     <c:version>2.1.1</c:version>
     <c:item>
-      <c:date>2012-07-15</c:date>
+      <c:date>2012-07-23</c:date>
+      <c:type-code-fix/>
+      <c:summary>Documentation improvements</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2012-07-23</c:date>
+      <c:type-code-new/>
+      <c:summary>Use saxon-plugin to produce documentation</c:summary>
+    </c:item>
+    <c:item>
+      <c:date>2012-07-23</c:date>
       <c:type-code-fix/>
       <c:summary>Add missing documentation CSS</c:summary>
     </c:item>
