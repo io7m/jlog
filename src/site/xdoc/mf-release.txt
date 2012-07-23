@@ -2,3 +2,7 @@
 2012-07-14:io7m-jlog-2.1.0-javadoc.jar:63484
 2012-07-14:io7m-jlog-2.1.0-sources.jar:10204
 2012-07-14:io7m-jlog-2.1.0.zip:50596
+2012-07-23:io7m-jlog-2.2.0-sources.jar:10329
+2012-07-23:io7m-jlog-2.2.0.jar:16714
+2012-07-23:io7m-jlog-2.2.0-javadoc.jar:63426
+2012-07-23:io7m-jlog-2.2.0.zip:54481
