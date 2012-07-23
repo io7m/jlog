@@ -1,1 +1,1 @@
-io7m-jlog 2.1.0
+io7m-jlog 2.2.0
