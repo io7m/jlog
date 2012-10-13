@@ -452,7 +452,7 @@ public final class Log implements LogInterface
     }
   }
 
-  @Override public void write(
+  @Deprecated @Override public void write(
     final @Nonnull String message)
   {
     this.write(Level.LOG_DEBUG, message);
