@@ -30,6 +30,12 @@ import javax.annotation.Nonnull;
 
 public final class Log implements LogInterface
 {
+  /**
+   * Default callback that simply writes the destination, followed by a colon,
+   * followed by the log level, followed by a colon, followed by the message,
+   * to the given output stream.
+   */
+
   private final static class DefaultCallback implements Callbacks
   {
     public DefaultCallback()
@@ -63,8 +69,17 @@ public final class Log implements LogInterface
     }
   }
 
-  public static final @Nonnull Callbacks defaultCallback =
-                                                           new DefaultCallback();
+  /**
+   * Default callback that simply writes the destination, followed by a colon,
+   * followed by the log level, followed by a colon, followed by the message,
+   * to the given output stream.
+   */
+
+  public static final @Nonnull Callbacks defaultCallback;
+
+  static {
+    defaultCallback = new DefaultCallback();
+  }
 
   private static int levelInteger(
     final @Nonnull Level level)
@@ -90,21 +105,10 @@ public final class Log implements LogInterface
   private final @CheckForNull Log                                parent;
   private final @Nonnull CopyOnWriteArrayList<Log>               children;
   private final @CheckForNull ConcurrentHashMap<String, Boolean> configuration;
-  private final @Nonnull AtomicReference<Callbacks>              callback =
-                                                                            new AtomicReference<Callbacks>();
-
-  private final @Nonnull AtomicReference<OutputStream>           stream   =
-                                                                            new AtomicReference<OutputStream>();
-  private final @Nonnull AtomicReference<Level>                  level    =
-                                                                            new AtomicReference<Level>();
+  private final @Nonnull AtomicReference<Callbacks>              callback;
+  private final @Nonnull AtomicReference<OutputStream>           stream;
+  private final @Nonnull AtomicReference<Level>                  level;
   private final @Nonnull String                                  destination_abs;
-
-  /*
-   * Default log callback that just writes the destination, followed by a
-   * colon, followed by the given message, followed by a newline, to the
-   * current output stream.
-   */
-
   private final @Nonnull String                                  destination_local;
   private final @CheckForNull AtomicInteger                      destination_longest;
 
@@ -123,11 +127,11 @@ public final class Log implements LogInterface
     this.parent = parent;
     this.parent.children.add(this);
 
-    this.callback.set(null);
-    this.stream.set(null);
-    this.level.set(Level.LOG_DEBUG);
-    this.configuration = null;
+    this.callback = new AtomicReference<Callbacks>(null);
+    this.stream = new AtomicReference<OutputStream>(null);
+    this.level = new AtomicReference<Level>(null);
 
+    this.configuration = null;
     this.destination_local = destination;
     this.destination_longest = null;
 
@@ -155,9 +159,10 @@ public final class Log implements LogInterface
     this.children = new CopyOnWriteArrayList<Log>();
     this.parent = null;
 
-    this.callback.set(Log.defaultCallback);
-    this.stream.set(System.err);
-    this.level.set(Level.LOG_DEBUG);
+    this.callback = new AtomicReference<Callbacks>(Log.defaultCallback);
+    this.stream = new AtomicReference<OutputStream>(System.err);
+    this.level = new AtomicReference<Level>(Level.LOG_DEBUG);
+
     this.configuration = new ConcurrentHashMap<String, Boolean>();
 
     this.destination_local = destination;
@@ -322,10 +327,6 @@ public final class Log implements LogInterface
     return this.parent.getRoot();
   }
 
-  /*
-   * Levels.
-   */
-
   @Override public void info(
     final @Nonnull String message)
   {
@@ -405,10 +406,6 @@ public final class Log implements LogInterface
     }
   }
 
-  /*
-   * Configuration.
-   */
-
   @Override public void setLevel(
     final Level in_level)
   {
@@ -434,10 +431,6 @@ public final class Log implements LogInterface
   {
     this.write(Level.LOG_WARN, message);
   }
-
-  /*
-   * Constructors.
-   */
 
   @Override public void write(
     final @Nonnull Level in_level,
