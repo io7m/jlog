@@ -17,8 +17,11 @@
 package com.io7m.jlog;
 
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.ThreadSafe;
 
-public final class LevelName
+import com.io7m.jaux.UnreachableCodeException;
+
+@ThreadSafe public final class LevelName
 {
   public static final int LEVEL_STRING_LONGEST = "critical".length();
 
@@ -37,9 +40,7 @@ public final class LevelName
       case LOG_CRITICAL:
         return "critical";
       default:
-        /* UNREACHABLE */
-        throw new IllegalArgumentException(
-          "unreachable code reached - report this bug!");
+        throw new UnreachableCodeException();
     }
   }
 }

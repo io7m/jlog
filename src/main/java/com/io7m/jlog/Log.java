@@ -27,8 +27,20 @@ import java.util.concurrent.atomic.AtomicReference;
 
 import javax.annotation.CheckForNull;
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.ThreadSafe;
 
-public final class Log implements LogInterface
+import com.io7m.jaux.UnreachableCodeException;
+
+/**
+ * The reference implementation of the hierarchical logging interface.
+ * 
+ * A root <code>Log</code> interface is created via the
+ * {@link Log#Log(Properties, String, String)} constructor. Children of this
+ * interface are then created by passing the existing <code>Log</code> to the
+ * {@link Log#Log(Log, String)} constructor.
+ */
+
+@ThreadSafe public final class Log implements LogInterface
 {
   /**
    * Default callback that simply writes the destination, followed by a colon,
@@ -96,9 +108,7 @@ public final class Log implements LogInterface
       case LOG_CRITICAL:
         return 4;
       default:
-        /* UNREACHABLE */
-        throw new IllegalArgumentException(
-          "unreachable code reached - report this bug!");
+        throw new UnreachableCodeException();
     }
   }
 
@@ -111,6 +121,12 @@ public final class Log implements LogInterface
   private final @Nonnull String                                  destination_abs;
   private final @Nonnull String                                  destination_local;
   private final @CheckForNull AtomicInteger                      destination_longest;
+
+  /**
+   * Construct a new child <code>Log</code> interface, with parent
+   * <code>parent</code>. The string <code>destination</code> will be appended
+   * to that of the parent.
+   */
 
   public Log(
     final @Nonnull Log parent,
@@ -135,11 +151,18 @@ public final class Log implements LogInterface
     this.destination_local = destination;
     this.destination_longest = null;
 
-    final @Nonnull StringBuilder buffer = new StringBuilder();
+    final StringBuilder buffer = new StringBuilder();
     this.getAbsoluteDestinationInner(buffer);
     this.destination_abs = buffer.toString();
     this.setDestinationLongest(this.destination_abs.length());
   }
+
+  /**
+   * Construct a new root logging interface, loading configuration data from
+   * <code>properties</code>. The configuration data is expected to be
+   * prefixed with the string <code>property_prefix</code> and the main log
+   * destination is set to <code>destination</code>.
+   */
 
   public Log(
     final @Nonnull Properties properties,
@@ -232,10 +255,6 @@ public final class Log implements LogInterface
     this.write(Level.LOG_ERROR, message);
   }
 
-  /**
-   * Get the absolute (fully qualified) destination of the current log.
-   */
-
   @Override public String getAbsoluteDestination()
   {
     return this.destination_abs;
@@ -308,9 +327,7 @@ public final class Log implements LogInterface
       return this.parent.getOutputStream();
     }
 
-    /* UNREACHABLE */
-    throw new IllegalArgumentException(
-      "unreachable code reached - report this bug!");
+    throw new UnreachableCodeException();
   }
 
   /**
@@ -436,6 +453,19 @@ public final class Log implements LogInterface
     final @Nonnull Level in_level,
     final @Nonnull String message)
   {
+    this.writeActual(in_level, message);
+  }
+
+  @Deprecated @Override public void write(
+    final @Nonnull String message)
+  {
+    this.write(Level.LOG_DEBUG, message);
+  }
+
+  private void writeActual(
+    final @Nonnull Level in_level,
+    final @Nonnull String message)
+  {
     if (this.enabled(in_level)) {
       final String destination = this.destination_abs;
       @SuppressWarnings("resource") final OutputStream out =
@@ -443,11 +473,5 @@ public final class Log implements LogInterface
       final Callbacks c = this.getCallback();
       c.call(out, destination, in_level, message);
     }
-  }
-
-  @Deprecated @Override public void write(
-    final @Nonnull String message)
-  {
-    this.write(Level.LOG_DEBUG, message);
   }
 }

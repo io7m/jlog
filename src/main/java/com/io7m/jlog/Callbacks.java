@@ -19,8 +19,9 @@ package com.io7m.jlog;
 import java.io.OutputStream;
 
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.ThreadSafe;
 
-public interface Callbacks
+@ThreadSafe public interface Callbacks
 {
   void call(
     final @Nonnull OutputStream out,

@@ -61,9 +61,7 @@ public final class ExampleThreaded implements Runnable
 
   private final Log main;
   private final Log main_a;
-
   private final Log main_b;
-
   private final Log blackhole;
 
   public ExampleThreaded(

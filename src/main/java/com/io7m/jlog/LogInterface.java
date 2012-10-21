@@ -19,8 +19,17 @@ package com.io7m.jlog;
 import java.io.OutputStream;
 
 import javax.annotation.Nonnull;
+import javax.annotation.concurrent.ThreadSafe;
 
-public interface LogInterface
+/**
+ * The logging interface provided by all implementations.
+ * 
+ * All functions/methods are required to be thread-safe (callable by any
+ * number of threads without explicit synchronization on the part of the
+ * caller).
+ */
+
+@ThreadSafe public interface LogInterface
 {
   /**
    * Log a message <code>message</code> of severity <code>LOG_CRITICAL</code>.
