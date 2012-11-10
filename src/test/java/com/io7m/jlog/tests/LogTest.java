@@ -40,7 +40,7 @@ public class LogTest
 
     }
 
-    @Override public void call(
+    @SuppressWarnings("unused") @Override public void call(
       final OutputStream out,
       final String destination,
       final Level level,

@@ -456,7 +456,7 @@ import com.io7m.jaux.UnreachableCodeException;
     this.writeActual(in_level, message);
   }
 
-  @Deprecated @Override public void write(
+  @SuppressWarnings("deprecation") @Deprecated @Override public void write(
     final @Nonnull String message)
   {
     this.write(Level.LOG_DEBUG, message);
