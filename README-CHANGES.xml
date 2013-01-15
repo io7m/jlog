@@ -3,6 +3,16 @@
   <c:project>io7m-jlog</c:project>
 
   <c:release ticket-system="com.io7m.fossil.jlog">
+    <c:date>2012-01-15</c:date>
+    <c:version>2.3.1</c:version>
+    <c:item>
+      <c:date>2013-01-15</c:date>
+      <c:type-code-fix/>
+      <c:summary>Use version ranges in dependencies</c:summary>
+    </c:item>
+  </c:release>
+ 
+  <c:release ticket-system="com.io7m.fossil.jlog">
     <c:date>2012-11-21</c:date>
     <c:version>2.3.0</c:version>
     <c:item>
