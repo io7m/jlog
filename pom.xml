@@ -43,6 +43,16 @@
     </site>
   </distributionManagement>
 
+  <mailingLists>
+    <mailingList>
+      <name>io7m-jlog</name>
+      <subscribe>io7m-jlog-join@lists.io7m.com</subscribe>
+      <unsubscribe>io7m-jlog-leave@lists.io7m.com</unsubscribe>
+      <post>io7m-jlog@lists.io7m.com</post>
+      <archive>http://lists.io7m.com/io7m-jlog/archive</archive>
+    </mailingList>
+  </mailingLists>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
