@@ -15,3 +15,8 @@
 2013-11-01:io7m-jlog-2.3.1.jar:17108
 2013-11-01:io7m-jlog-2.3.1.zip:60223
 2013-11-01:io7m-jlog-2.3.1-documentation.zip:98126
+2013-12-17:io7m-jlog-2.4.0.jar:17104
+2013-12-17:io7m-jlog-2.4.0-javadoc.jar:79535
+2013-12-17:io7m-jlog-2.4.0-sources.jar:11068
+2013-12-17:io7m-jlog-2.4.0.zip:60441
+2013-12-17:io7m-jlog-2.4.0-documentation.zip:98208

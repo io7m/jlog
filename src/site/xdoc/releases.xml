@@ -189,6 +189,56 @@
               <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.3.1-documentation.zip">io7m-jlog-2.3.1-documentation.zip</a>
             </td>
           </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2013-12-17</td>
+            <td class="page_table_column">17104</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0.jar.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0.jar">io7m-jlog-2.4.0.jar</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2013-12-17</td>
+            <td class="page_table_column">79535</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0-javadoc.jar.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0-javadoc.jar">io7m-jlog-2.4.0-javadoc.jar</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2013-12-17</td>
+            <td class="page_table_column">11068</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0-sources.jar.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0-sources.jar">io7m-jlog-2.4.0-sources.jar</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2013-12-17</td>
+            <td class="page_table_column">60441</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0.zip.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0.zip">io7m-jlog-2.4.0.zip</a>
+            </td>
+          </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2013-12-17</td>
+            <td class="page_table_column">98208</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0-documentation.zip.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0-documentation.zip">io7m-jlog-2.4.0-documentation.zip</a>
+            </td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -257,6 +307,19 @@
               <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.3.1-documentation.zip">io7m-jlog-2.3.1-documentation.zip</a>
             </td>
           </tr>
+          <tr class="page_table_row">
+            <td class="page_table_column">2013-12-17</td>
+            <td class="page_table_column">98208</td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0-documentation.zip.asc">asc</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://io7m.com/software/jlog/doc/2.4.0/d1.xhtml">io7m-jlog 2.4.0</a>
+            </td>
+            <td class="page_table_column">
+              <a class="page_link_file" href="http://distribution.io7m.com/jlog/io7m-jlog-2.4.0-documentation.zip">io7m-jlog-2.4.0-documentation.zip</a>
+            </td>
+          </tr>
         </tbody>
       </table>
     </section>
@@ -265,6 +328,14 @@
 <table xmlns="http://www.w3.org/1999/xhtml"
        class="changelog page_table"
        summary="Changes">
+   <tr class="page_table_row">
+      <td class="page_table_column">2013-12-17</td>
+      <td class="page_table_column">Release: io7m-jlog 2.4.0</td>
+   </tr>
+   <tr class="page_table_row">
+      <td class="page_table_column">2013-12-17</td>
+      <td class="page_table_column">Code fix: Use jaux [3.0.0, 4.0.0x)</td>
+   </tr>
    <tr class="page_table_row">
       <td class="page_table_column">2013-11-01</td>
       <td class="page_table_column">Release: io7m-jlog 2.3.1</td>
