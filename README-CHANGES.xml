@@ -8,7 +8,7 @@
     <c:item>
       <c:date>2013-12-17</c:date>
       <c:type-code-fix/>
-      <c:summary>Use jaux [3.0.0, 4.0.0x)</c:summary>
+      <c:summary>Use jaux [3.0.0, 4.0.0)</c:summary>
     </c:item>
   </c:release>
 
