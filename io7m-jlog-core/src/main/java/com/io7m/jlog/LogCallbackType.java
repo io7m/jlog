@@ -31,7 +31,7 @@ public interface LogCallbackType
    * </p>
    * 
    * @param log
-   *          The log interface.
+   *          The log interface that received the message.
    * @param level
    *          The log level.
    * @param message
