@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright © 2014 <code@io7m.com> http://io7m.com
+
+  Permission to use, copy, modify, and/or distribute this software for any
+  purpose with or without fee is hereby granted, provided that the above
+  copyright notice and this permission notice appear in all copies.
+
+  THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+  WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+  MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+  ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+  WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+  ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+  OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+  -->
+
+<s:document
+  xmlns:s="http://schemas.io7m.com/structural/2.0.0"
+  xmlns:xi="http://www.w3.org/2001/XInclude">
+  <s:document-title>${project.parent.name} ${project.version} Documentation</s:document-title>
+  <s:document-style>documentation.css</s:document-style>
+  <s:document-contents/>
+
+  <s:part>
+    <s:part-title>Package Information</s:part-title>
+    <s:part-contents />
+
+    <s:section>
+      <s:section-title>Orientation</s:section-title>
+      <s:subsection>
+        <s:subsection-title>Overview</s:subsection-title>
+        <s:paragraph>
+          The <s:term s:type="package">jlog</s:term> package provides a
+          simple API for configurable program logging.
+        </s:paragraph>
+        <s:paragraph>
+          The API exposed to the programmer essentially has the programmer build
+          an (implicit) tree of log outputs and pass one output to each relevant program
+          component. The leaves/branches of the tree can be individually
+          enabled/disabled at runtime from a simple Java
+          <s:link-external s:target="http://docs.oracle.com/javase/6/docs/api/java/util/Properties.html">properties</s:link-external>
+          file. This allows the programmer to specify exactly which
+          debugging messages they require at any given time, preventing
+          the typical flood of messages when setting high verbosity levels
+          for traditional UNIX programs.
+        </s:paragraph>
+      </s:subsection>
+      <s:subsection>
+        <s:subsection-title>Simplicity</s:subsection-title>
+        <s:paragraph>
+          The entire library consists of around 700 lines of pure Java,
+          and includes selectable log levels and precise control over logging
+          from program components. All non-essential "logging" features
+          are rejected: No timestamps, no automatic log rotation, no
+          logging to databases or mail systems - all of these features should
+          be provided by external programs or libraries
+          <s:footnote>
+            The package provides an utterly trivial callback interface
+            to allow external packages to execute code upon receipt of
+            log messages, if absolutely necessary.
+          </s:footnote>.
+        </s:paragraph>
+      </s:subsection>
+    </s:section>
+
+    <s:section>
+      <s:section-title>Installation</s:section-title>
+      <s:subsection>
+        <s:subsection-title>Source compilation</s:subsection-title>
+        <s:paragraph>
+          The project can be compiled and installed with
+          <s:link-external s:target="http://maven.apache.org">Maven</s:link-external>:
+        </s:paragraph>
+        <s:paragraph>
+          <s:verbatim s:type="example"><![CDATA[$ mvn -C clean install]]></s:verbatim>
+        </s:paragraph>
+      </s:subsection>
+
+      <s:subsection>
+        <s:subsection-title>Maven</s:subsection-title>
+        <s:paragraph>
+          Regular releases are made to the
+          <s:link-external s:target="http://search.maven.org/#search%7Cga%7C1%7C${project.parent.name}">Central Repository</s:link-external>,
+          so it's possible to use the <s:term s:type="package">${project.parent.name}</s:term>
+          package in your projects with the following Maven dependency:
+        </s:paragraph>
+        <s:paragraph>
+          <s:verbatim s:type="example"><![CDATA[<dependency>
+  <groupId>${project.groupId}</groupId>
+  <artifactId>${project.parent.artifactId}-core</artifactId>
+  <version>${project.version}</version>
+</dependency>]]></s:verbatim>
+        </s:paragraph>
+        <s:paragraph>
+          All <s:link-external s:target="http://io7m.com">io7m.com</s:link-external>
+          packages use Semantic Versioning
+          <s:footnote>
+            <s:link-external s:target="http://semver.org">http://semver.org</s:link-external>
+          </s:footnote>, which implies that it is always safe to use version ranges
+          with an exclusive upper bound equal to the next major version - the API of
+          the package will not change in a backwards-incompatible manner before the
+          next major version.
+        </s:paragraph>
+      </s:subsection>
+    </s:section>
+
+    <s:section>
+      <s:section-title>Platform Specific Issues</s:section-title>
+      <s:paragraph>
+        There are currently no known platform-specific issues.
+      </s:paragraph>
+    </s:section>
+
+    <s:section>
+      <s:section-title>License</s:section-title>
+      <s:paragraph>
+        All files distributed with the <s:term s:type="package">${project.parent.name}</s:term>
+        package are placed under the following license:
+        <s:verbatim s:type="license"><![CDATA[Copyright © 2014 <code@io7m.com> http://io7m.com
+
+Permission to use, copy, modify, and/or distribute this software for any
+purpose with or without fee is hereby granted, provided that the above
+copyright notice and this permission notice appear in all copies.
+
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.]]>
+        </s:verbatim>
+      </s:paragraph>
+    </s:section>
+  </s:part>
+
+  <s:part>
+    <s:part-title>Usage</s:part-title>
+    <s:part-contents/>
+    <s:section>
+      <s:section-title>Concepts</s:section-title>
+      <s:paragraph>
+        Log <s:link-external s:target="apidocs/com/io7m/jlog/LogType.html">interfaces</s:link-external>
+        accept <s:term s:type="term">messages</s:term> and conditionally log those
+        messages to an 
+        <s:link-external s:target="http://docs.oracle.com/javase/6/docs/api/java/io/OutputStream.html">output stream</s:link-external>
+        based on both the current
+        <s:link-external s:target="apidocs/com/io7m/jlog/LogLevel.html">log level</s:link-external>
+        and whether or not the specific log interface is
+        <s:term s:type="term">enabled</s:term> or <s:term s:type="term">disabled</s:term>.
+      </s:paragraph>
+      <s:paragraph>
+        Log interfaces are named and form a hierarchy <s:footnote>A directed acyclic graph.</s:footnote>. 
+        If the root log interface is named <s:term s:type="constant">main</s:term> and has three children
+        <s:term s:type="constant">a</s:term>, <s:term s:type="constant">b</s:term>,
+        and <s:term s:type="constant">c</s:term>, then the 
+        <s:term s:type="term">absolute destinations</s:term> of the children
+        are <s:term s:type="constant">main.a</s:term>, <s:term s:type="constant">main.b</s:term>,
+        and <s:term s:type="constant">main.c</s:term>, respectively.
+      </s:paragraph>
+      <s:paragraph>
+        Specific log interfaces can be enabled and disabled programatically,
+        but the default status of each can be specified by a
+        <s:link-external s:target="apidocs/com/io7m/jlog/LogPolicyType.html">policy</s:link-external>.
+        The package provides a simple policy 
+        <s:link-external s:target="apidocs/com/io7m/jlog/LogPolicyProperties.html">implementation</s:link-external>
+        backed by Java
+        <s:link-external s:target="http://docs.oracle.com/javase/6/docs/api/java/util/Properties.html">properties</s:link-external>.
+      </s:paragraph>
+    </s:section>
+    <s:section>
+      <s:section-title>Usage</s:section-title>
+      <s:subsection>
+        <s:subsection-title>Initialization</s:subsection-title>
+        <s:paragraph>
+          First, an initial log interface - a specific implementation of
+          the <s:link-external s:target="apidocs/com/io7m/jlog/LogType.html">LogType</s:link-external>
+          interface - must be created. Instantiating a log interface requires a
+          <s:link-external s:target="apidocs/com/io7m/jlog/LogPolicyType.html">policy</s:link-external>
+          to determine the default settings for logging. The <s:term s:type="package">${project.parent.name}</s:term>
+          package provides a simple logging implementation named
+          <s:link-external s:target="apidocs/com/io7m/jlog/Log.html">Log</s:link-external>.
+          It provides multiple policy implementations, the simplest of which is the
+          <s:link-external s:target="apidocs/com/io7m/jlog/LogPolicyAllOn.html">LogPolicyAllOn</s:link-external>
+          type, which simply enables all logging and requires the programmer to specify
+          the initial <s:link-external s:target="apidocs/com/io7m/jlog/LogLevel.html">log level</s:link-external>.
+          The root log also requires a name. In this case, the name <s:term s:type="constant">main</s:term>
+          is chosen, but any name that does not contain a dot (<s:term s:type="constant">U+002E</s:term>)
+          can be used.
+        </s:paragraph>
+        <s:formal-item s:kind="example">
+          <s:formal-item-title>Initialization example</s:formal-item-title>
+          <s:verbatim><![CDATA[
+LogPolicyType policy =
+  LogPolicyAllOn.newPolicy(LogLevel.LOG_DEBUG);
+LogType log =
+  Log.newLog(policy, "main");]]></s:verbatim>
+        </s:formal-item>
+      </s:subsection>
+      <s:subsection>
+        <s:subsection-title>Logging</s:subsection-title>
+        <s:paragraph>
+          At this point, messages logged to the interface will appear on Java's current
+          <s:link-external s:target="http://docs.oracle.com/javase/6/docs/api/java/lang/System.html#err">standard error stream</s:link-external>.
+        </s:paragraph>
+        <s:formal-item s:kind="example">
+          <s:formal-item-title>Logging example</s:formal-item-title>
+          <s:verbatim><![CDATA[log.debug("A debug message");
+log.critical("A critical message");]]></s:verbatim>
+        </s:formal-item>
+        <s:paragraph>
+          Logging is completely thread-safe. Multiple threads may log to the
+          same log interface, or call any of the log interface functions without
+          explicit synchronization.
+        </s:paragraph>
+      </s:subsection>
+      <s:subsection>
+        <s:subsection-title>Hierarchy</s:subsection-title>
+        <s:paragraph>
+          Programs with multiple subsystems will want to take advantage of the hierarchical
+          nature of <s:term s:type="package">${project.parent.name}</s:term> interfaces. For
+          example, a program with three subsystems - <s:term s:type="constant">renderer</s:term>,
+          <s:term s:type="constant">audio</s:term>, and <s:term s:type="constant">filesystem</s:term> -
+          would be structured such that each subsystem receives its own log interface (and
+          can create new children of that log interface as required):
+        </s:paragraph>
+        <s:formal-item s:kind="example">
+          <s:formal-item-title>Logging hierachy example</s:formal-item-title>
+          <s:verbatim><![CDATA[LogType log_r = log.with("renderer");
+LogType log_f = log.with("filesystem");
+LogType log_a = log.with("audio");
+
+RendererType r = Renderer.newRenderer(log_r);
+AudioSystemType a = AudioSystem.newAudio(log_a);
+FilesystemType f = Filesystem.newFilesystem(log_f);]]></s:verbatim>
+        </s:formal-item>
+        <s:paragraph>
+          The renderer can then, for example, create further children using the
+          <s:term s:type="variable">log_r</s:term> interface it receives, allowing
+          for potentially extremely fine-grained logging.
+        </s:paragraph>
+      </s:subsection>
+      <s:subsection>
+        <s:subsection-title>Callbacks</s:subsection-title>
+        <s:paragraph>
+          The <s:term s:type="package">${project.parent.name}</s:term> package
+          allows for the association of at most one
+          <s:link-external s:target="apidocs/com/io7m/jlog/LogCallbackType.html">callback function</s:link-external>
+          with each root log interface. The given callback will be executed on receipt
+          of any log message. This is useful for, for example, intercepting all
+          log messages so that they can be logged to a
+          <s:link-external s:target="http://docs.oracle.com/javase/tutorial/uiswing">Swing</s:link-external>
+          console window in graphical programs.
+        </s:paragraph>
+        <s:formal-item s:kind="example">
+          <s:formal-item-title>Logging hierachy example</s:formal-item-title>
+          <s:verbatim><![CDATA[log.setCallback(new CallbackType() {
+  @Override public void call(
+    final LogConfigReadableType log,
+    final LogLevel level,
+    final String message)
+  {
+    SwingUtilities.invokeLater(new Runnable() {
+      @Override public void run()
+      {
+        StringBuilder m = new StringBuilder();
+        m.append(level.getName());
+        m.append(": );
+        m.append(message);
+        text_area.appendText(m.toString());
+      }
+    });
+  }
+});]]></s:verbatim>
+        </s:formal-item>
+      </s:subsection>
+      <s:subsection>
+        <s:subsection-title>Capabilities</s:subsection-title>
+        <s:paragraph>
+          The <s:link-external s:target="apidocs/com/io7m/jlog/LogType.html">LogType</s:link-external>
+          interface is actually a composite of several interfaces, giving programs fine-grained
+          control over what separate parts of the program are allowed to do with
+          each interface
+          <s:footnote>
+            See <s:link-external s:target="http://io7m.com/documents/java/tt2-intcap/index.xhtml">Interfaces as capabilities</s:link-external>.
+          </s:footnote>.
+        </s:paragraph>
+        <s:paragraph>
+          The <s:link-external s:target="apidocs/com/io7m/jlog/LogType.html">LogType</s:link-external>
+          interface consists of the following sub-interfaces:
+        </s:paragraph>
+        <s:formal-item s:kind="example">
+          <s:formal-item-title>Interfaces</s:formal-item-title>
+          <s:list-unordered>
+            <s:list-item>
+              <s:link-external s:target="apidocs/com/io7m/jlog/LogCreatableType.html">LogCreatableType</s:link-external> -
+              allows the creation of new log interfaces.
+            </s:list-item>
+            <s:list-item>
+              <s:link-external s:target="apidocs/com/io7m/jlog/LogWritableType.html">LogWritableType</s:link-external> -
+              allows writing messages to log interfaces.
+            </s:list-item>
+            <s:list-item>
+              <s:link-external s:target="apidocs/com/io7m/jlog/LogConfigurableType.html">LogConfigurableType</s:link-external> -
+              allows the configuration of callbacks, the current log level, etc.
+            </s:list-item>
+            <s:list-item>
+              <s:link-external s:target="apidocs/com/io7m/jlog/LogConfigReadableType.html">LogConfigReadableType</s:link-external> -
+              allows the reading of configuration information (the current log level, etc).
+            </s:list-item>
+          </s:list-unordered>
+        </s:formal-item>
+        <s:paragraph>
+          If, for example, a function requires the ability to write log messages
+          and does not require the ability to affect the logging configuration,
+          it should accept a value of type
+          <s:link-external s:target="apidocs/com/io7m/jlog/LogWritableType.html">LogWritableType</s:link-external>
+          instead of the full
+          <s:link-external s:target="apidocs/com/io7m/jlog/LogType.html">LogType</s:link-external> interface.
+        </s:paragraph>
+        <s:paragraph>
+          The <s:link-external s:target="apidocs/com/io7m/jlog/LogUsableType.html">LogUsableType</s:link-external>
+          is provided as a convenience. It allows for the writing of log messages,
+          the creation of log interfaces, but does not allow for the modification
+          of the current log level or other configuration settings.
+        </s:paragraph>
+      </s:subsection>
+    </s:section>
+  </s:part>
+
+  <s:part>
+    <s:part-title>API Reference</s:part-title>
+    <s:part-contents/>
+    <s:section>
+      <s:section-title>Javadoc</s:section-title>
+      <s:paragraph>
+        API documentation for the package is provided via the
+        included <s:link-external s:target="apidocs">Javadoc</s:link-external>.
+      </s:paragraph>
+    </s:section>
+  </s:part>
+
+</s:document>
