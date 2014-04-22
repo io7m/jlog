@@ -170,6 +170,7 @@ OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.]]>
         <s:link-external s:target="http://docs.oracle.com/javase/6/docs/api/java/util/Properties.html">properties</s:link-external>.
       </s:paragraph>
     </s:section>
+
     <s:section>
       <s:section-title>Usage</s:section-title>
       <s:subsection>
@@ -199,6 +200,7 @@ LogType log =
   Log.newLog(policy, "main");]]></s:verbatim>
         </s:formal-item>
       </s:subsection>
+
       <s:subsection>
         <s:subsection-title>Logging</s:subsection-title>
         <s:paragraph>
@@ -215,7 +217,12 @@ log.critical("A critical message");]]></s:verbatim>
           same log interface, or call any of the log interface functions without
           explicit synchronization.
         </s:paragraph>
+        <s:paragraph>
+          Only messages of a level greater than or equal to the current
+          log level are logged.
+        </s:paragraph>
       </s:subsection>
+
       <s:subsection>
         <s:subsection-title>Hierarchy</s:subsection-title>
         <s:paragraph>
@@ -242,6 +249,7 @@ FilesystemType f = Filesystem.newFilesystem(log_f);]]></s:verbatim>
           for potentially extremely fine-grained logging.
         </s:paragraph>
       </s:subsection>
+
       <s:subsection>
         <s:subsection-title>Callbacks</s:subsection-title>
         <s:paragraph>
@@ -255,7 +263,7 @@ FilesystemType f = Filesystem.newFilesystem(log_f);]]></s:verbatim>
           console window in graphical programs.
         </s:paragraph>
         <s:formal-item s:kind="example">
-          <s:formal-item-title>Logging hierachy example</s:formal-item-title>
+          <s:formal-item-title>Logging callback example</s:formal-item-title>
           <s:verbatim><![CDATA[log.setCallback(new CallbackType() {
   @Override public void call(
     final LogConfigReadableType log,
@@ -276,6 +284,71 @@ FilesystemType f = Filesystem.newFilesystem(log_f);]]></s:verbatim>
 });]]></s:verbatim>
         </s:formal-item>
       </s:subsection>
+
+      <s:subsection>
+        <s:subsection-title>Property-based policies</s:subsection-title>
+        <s:paragraph>
+          Experience has shown that the hierarchies of log interfaces created
+          when using the <s:term s:type="package">${project.parent.name}</s:term> package
+          typically match the structure of the program using them. That is, the hierarchies
+          are often completely static, and logging policy is usually decided upon program
+          startup and then not changed. The <s:term s:type="package">${project.parent.name}</s:term>
+          package therefore provides an implementation of the
+          <s:link-external s:target="apidocs/com/io7m/jlog/LogPolicyType.html">policy</s:link-external>
+          interface named
+          <s:link-external s:target="apidocs/com/io7m/jlog/LogPolicyProperties.html">LogPolicyProperties</s:link-external>
+          that reads settings from a given set of
+          <s:link-external s:target="http://docs.oracle.com/javase/6/docs/api/java/util/Properties.html">properties</s:link-external>.
+        </s:paragraph>
+        <s:paragraph>
+          The <s:term s:type="type">LogPolicyProperties</s:term> type takes a set of
+          <s:term s:type="type">Properties</s:term> and a prefix string <s:term s:type="term">p</s:term>.
+          The implementation will then attempt to read from a key
+          named <s:term s:type="constant">p.level</s:term> to determine the current log level,
+          falling back to
+          <s:link-external s:target="apidocs/com/io7m/jlog/LogLevel.html#LOG_DEBUG">LOG_DEBUG</s:link-external>
+          if the key does not exist. It then attempts to read from all keys with names beginning
+          with
+          <s:term s:type="constant">p.logs</s:term> to determine the default state of
+          log interfaces. For example:
+        </s:paragraph>
+        <s:formal-item s:kind="example">
+          <s:formal-item-title>Log properties</s:formal-item-title>
+          <s:verbatim><![CDATA[
+com.io7m.example.level         = LOG_CRITICAL
+com.io7m.example.logs          = true
+com.io7m.example.logs.main     = true
+com.io7m.example.logs.main.a   = false
+com.io7m.example.logs.main.a.c = true
+]]></s:verbatim>
+        </s:formal-item>
+        <s:paragraph>
+          Given the above properties and a prefix <s:term s:type="constant">com.io7m.example</s:term>,
+          the default log level will be
+          <s:link-external s:target="apidocs/com/io7m/jlog/LogLevel.html#LOG_CRITICAL">LOG_CRITICAL</s:link-external>.
+          An interface created with name
+          <s:term s:type="constant">main</s:term> will be enabled by default, but a child
+          <s:term s:type="constant">a</s:term> of that interface (<s:term s:type="constant">main.a</s:term>) will
+          not. If a specific entry does not exist for a given name, the closest ancestor
+          specified in the properties is used. Therefore, a child <s:term s:type="constant">b</s:term>
+          of <s:term s:type="constant">main</s:term> (<s:term s:type="constant">main.b</s:term>)
+          does not have an entry in the above properties, and the closest ancestor of
+          <s:term s:type="constant">main.b</s:term> is <s:term s:type="constant">main</s:term>,
+          so the default state of <s:term s:type="constant">true</s:term> is inherited.
+        </s:paragraph>
+        <s:paragraph>
+          If there is no ancestor available (consider a new root interface named <s:term s:type="constant">other</s:term>),
+          then the default value (given by the key <s:term s:type="constant">p.logs</s:term>) is used,
+          defaulting to <s:term s:type="constant">true</s:term> if the key does not exist.
+        </s:paragraph>
+        <s:paragraph>
+          The types of the properties are checked at run-time (so it is an error to specify,
+          for example, an integer value where a boolean is expected), and are loaded eagerly
+          on construction of the policy. Later modifications to the given
+          <s:term s:type="type">Properties</s:term> will not be noticed by the policy.
+        </s:paragraph>
+      </s:subsection>
+
       <s:subsection>
         <s:subsection-title>Capabilities</s:subsection-title>
         <s:paragraph>
@@ -292,7 +365,7 @@ FilesystemType f = Filesystem.newFilesystem(log_f);]]></s:verbatim>
           interface consists of the following sub-interfaces:
         </s:paragraph>
         <s:formal-item s:kind="example">
-          <s:formal-item-title>Interfaces</s:formal-item-title>
+          <s:formal-item-title>Capabilities</s:formal-item-title>
           <s:list-unordered>
             <s:list-item>
               <s:link-external s:target="apidocs/com/io7m/jlog/LogCreatableType.html">LogCreatableType</s:link-external> -

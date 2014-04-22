@@ -43,9 +43,10 @@ import com.io7m.jproperties.JPropertyIncorrectType;
  * </p>
  * 
  * <pre>
- * com.io7m.tests.level = LOG_DEBUG
- * com.io7m.tests.logs.main = true
- * com.io7m.tests.logs.main.a = false
+ * com.io7m.tests.level         = LOG_DEBUG
+ * com.io7m.tests.logs          = true
+ * com.io7m.tests.logs.main     = true
+ * com.io7m.tests.logs.main.a   = false
  * com.io7m.tests.logs.main.b.a = false
  * </pre>
  * <p>
@@ -55,7 +56,8 @@ import com.io7m.jproperties.JPropertyIncorrectType;
  * specific entry for an interface <code>main.b</code>, and the closest
  * ancestor of <code>main.b</code> is <code>main</code>, so
  * <code>main.b</code> will inherit <code>main</code>'s default state and will
- * be enabled by default.
+ * be enabled by default. If there is no ancestor, the default value is used,
+ * specified by <code>com.io7m.tests.logs</code>.
  * </p>
  */
 
