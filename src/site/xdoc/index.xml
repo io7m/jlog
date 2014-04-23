@@ -19,7 +19,7 @@
         an (implicit) tree of log outputs and pass one output to each relevant program
         component. The leaves/branches of the tree can be individually
         enabled/disabled at runtime from a simple Java
-        <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/Properties.html">properties</a>
+        <a href="http://docs.oracle.com/javase/6/docs/api/java/util/Properties.html">properties</a>
         file. This allows the programmer to specify exactly which
         debugging messages they require at any given time, preventing
         the typical flood of messages when setting high verbosity levels
