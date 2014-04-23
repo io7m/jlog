@@ -14,13 +14,20 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package com.io7m.jlog;
+package com.io7m.jlog.tests;
 
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.io7m.jlog.Log;
+import com.io7m.jlog.LogCallbackType;
+import com.io7m.jlog.LogConfigReadableType;
+import com.io7m.jlog.LogLevel;
+import com.io7m.jlog.LogPolicyAllOn;
+import com.io7m.jlog.LogType;
+import com.io7m.jnull.NonNull;
 import com.io7m.jnull.NullCheckException;
 
 @SuppressWarnings("static-method") public final class LogTest
@@ -37,9 +44,9 @@ import com.io7m.jnull.NullCheckException;
 
     final LogCallbackType cb = new LogCallbackType() {
       @Override public void call(
-        final LogConfigReadableType log,
-        final LogLevel level,
-        final String message)
+        final @NonNull LogConfigReadableType log,
+        final @NonNull LogLevel level,
+        final @NonNull String message)
       {
         saved_log.set(log);
         saved_level.set(level);
@@ -186,9 +193,9 @@ import com.io7m.jnull.NullCheckException;
 
       final LogCallbackType cb = new LogCallbackType() {
         @Override public void call(
-          final LogConfigReadableType rlog,
-          final LogLevel level,
-          final String message)
+          final @NonNull LogConfigReadableType rlog,
+          final @NonNull LogLevel level,
+          final @NonNull String message)
         {
           saved_log.set(rlog);
           saved_level.set(level);
@@ -240,9 +247,9 @@ import com.io7m.jnull.NullCheckException;
 
     final LogCallbackType cb = new LogCallbackType() {
       @Override public void call(
-        final LogConfigReadableType rlog,
-        final LogLevel level,
-        final String message)
+        final @NonNull LogConfigReadableType rlog,
+        final @NonNull LogLevel level,
+        final @NonNull String message)
       {
         saved_log.set(rlog);
         saved_level.set(level);
@@ -294,9 +301,9 @@ import com.io7m.jnull.NullCheckException;
 
     final LogCallbackType cb = new LogCallbackType() {
       @Override public void call(
-        final LogConfigReadableType rlog,
-        final LogLevel level,
-        final String message)
+        final @NonNull LogConfigReadableType rlog,
+        final @NonNull LogLevel level,
+        final @NonNull String message)
       {
         saved_log.set(rlog);
         saved_level.set(level);

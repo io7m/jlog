@@ -14,13 +14,16 @@
  * IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-package com.io7m.jlog;
+package com.io7m.jlog.tests;
 
 import java.util.Properties;
 
 import org.junit.Assert;
 import org.junit.Test;
 
+import com.io7m.jlog.LogLevel;
+import com.io7m.jlog.LogPolicyProperties;
+import com.io7m.jlog.LogPolicyType;
 import com.io7m.jnull.NullCheckException;
 import com.io7m.jproperties.JPropertyException;
 import com.io7m.jproperties.JPropertyIncorrectType;
