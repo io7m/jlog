@@ -3,6 +3,17 @@
   <c:project>io7m-jlog</c:project>
 
   <c:release c:ticket-system="com.io7m.fossil.jlog">
+    <c:date>2014-06-14</c:date>
+    <c:version>3.0.1</c:version>
+    <c:item>
+      <c:date>2014-06-14</c:date>
+      <c:type-code-fix/>
+      <c:summary>Make each log handle correctly perform policy checks.</c:summary>
+      <c:ticket>d975e4349f</c:ticket>
+    </c:item>
+  </c:release>
+
+  <c:release c:ticket-system="com.io7m.fossil.jlog">
     <c:date>2014-04-22</c:date>
     <c:version>3.0.0</c:version>
     <c:item>
