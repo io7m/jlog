@@ -56,25 +56,19 @@ import com.io7m.jnull.NullCheck;
   @Override public void critical(
     final String message)
   {
-    this.root.writeActual(
-      this,
-      LogLevel.LOG_CRITICAL,
-      this.destination,
-      message);
+    this.writeActual(LogLevel.LOG_CRITICAL, this.destination, message);
   }
 
   @Override public void debug(
     final String message)
   {
-    this.root
-      .writeActual(this, LogLevel.LOG_DEBUG, this.destination, message);
+    this.writeActual(LogLevel.LOG_DEBUG, this.destination, message);
   }
 
   @Override public void error(
     final String message)
   {
-    this.root
-      .writeActual(this, LogLevel.LOG_ERROR, this.destination, message);
+    this.writeActual(LogLevel.LOG_ERROR, this.destination, message);
   }
 
   @Override public String getAbsoluteDestination()
@@ -85,7 +79,7 @@ import com.io7m.jnull.NullCheck;
   @Override public void info(
     final String message)
   {
-    this.root.writeActual(this, LogLevel.LOG_INFO, this.destination, message);
+    this.writeActual(LogLevel.LOG_INFO, this.destination, message);
   }
 
   @Override public boolean isEnabled()
@@ -109,7 +103,7 @@ import com.io7m.jnull.NullCheck;
   @Override public void warn(
     final String message)
   {
-    this.root.writeActual(this, LogLevel.LOG_WARN, this.destination, message);
+    this.writeActual(LogLevel.LOG_WARN, this.destination, message);
   }
 
   @Override public LogType with(
@@ -147,6 +141,16 @@ import com.io7m.jnull.NullCheck;
     final LogLevel level,
     final String message)
   {
-    this.root.writeActual(this, level, this.destination, message);
+    this.writeActual(level, this.destination, message);
+  }
+
+  private void writeActual(
+    final LogLevel level,
+    final String dest,
+    final String message)
+  {
+    if (this.isEnabled()) {
+      this.root.writeActual(this, level, dest, message);
+    }
   }
 }
