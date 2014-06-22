@@ -89,22 +89,22 @@
     <dependency>
       <groupId>com.io7m.jequality</groupId>
       <artifactId>io7m-jequality-core</artifactId>
-      <version>0.2.0</version>
+      <version>[1.0.0, 2.0.0)</version>
     </dependency>
     <dependency>
       <groupId>com.io7m.jnull</groupId>
       <artifactId>io7m-jnull-core</artifactId>
-      <version>0.2.0</version>
+      <version>[1.0.0, 2.0.0)</version>
     </dependency>
     <dependency>
       <groupId>com.io7m.jproperties</groupId>
       <artifactId>io7m-jproperties-core</artifactId>
-      <version>0.1.0</version>
+      <version>[1.0.0, 2.0.0)</version>
     </dependency>
     <dependency>
       <groupId>com.io7m.junreachable</groupId>
       <artifactId>io7m-junreachable-core</artifactId>
-      <version>0.2.0</version>
+      <version>[1.0.0, 2.0.0)</version>
     </dependency>
   </dependencies>
 
